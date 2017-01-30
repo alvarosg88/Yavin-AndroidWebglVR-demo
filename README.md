@@ -1,7 +1,7 @@
 # Yavin Android WebGL VR demo
 
 Download it from Google Play! 
-https://play.google.com/store/apps/details?id=com.hb_asg.yavin
+https://play.google.com/store/apps/details?id=com.hbasg.yavin
 
 Simple implementation of a web demo developed with three.js within a WebView and compatible with Google Cardboard.
 
