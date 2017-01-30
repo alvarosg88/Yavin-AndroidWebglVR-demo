@@ -12,10 +12,8 @@ import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
-
-    private WebView webView;
-    private RelativeLayout progressLayout;
+    private WebView mWebView;
+    private RelativeLayout mProgressLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
         setFullScreenMode();
 
         setContentView(R.layout.activity_main);
-        webView = (WebView) findViewById(R.id.webView);
-        progressLayout = (RelativeLayout) findViewById(R.id.progressLayout);
+        mWebView = (WebView) findViewById(R.id.webView);
+        mProgressLayout = (RelativeLayout) findViewById(R.id.progressLayout);
 
         setupWebView();
     }
@@ -32,13 +30,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        webView.onResume();
+        mWebView.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        webView.onPause();
+        mWebView.onPause();
     }
 
     private void setFullScreenMode() {
@@ -53,20 +51,20 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("SetJavaScriptEnabled")
     private void setupWebView() {
-        webView.setWebChromeClient(new WebChromeClient());
-        webView.setWebViewClient(new WebViewClient() {
+        mWebView.setWebChromeClient(new WebChromeClient());
+        mWebView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                progressLayout.setVisibility(View.GONE);
+                mProgressLayout.setVisibility(View.GONE);
             }
         });
 
-        WebSettings webSettings = webView.getSettings();
+        WebSettings webSettings = mWebView.getSettings();
         webSettings.setAllowUniversalAccessFromFileURLs(true);
         webSettings.setJavaScriptEnabled(true);
         webSettings.setSupportZoom(false);
 
-        webView.loadUrl("file:///android_asset/www/index.html");
+        mWebView.loadUrl("file:///android_asset/www/index.html");
     }
 }
