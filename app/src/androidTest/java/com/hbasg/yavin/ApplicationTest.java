@@ -1,4 +1,4 @@
-package com.hb_asg.yavin;
+package com.hbasg.yavin;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
